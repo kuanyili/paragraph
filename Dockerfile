@@ -27,5 +27,4 @@ WORKDIR /opt/paragraph-build
 RUN cmake /opt/paragraph-source -DCMAKE_INSTALL_PREFIX=/opt/paragraph && make && make install
 RUN rm -rf /opt/paragraph-source
 
-ENTRYPOINT ["/usr/bin/python3"]
-CMD ["/opt/paragraph/bin/multigrmpy.py", "-h"]
+ENV PATH="/opt/paragraph/bin:$PATH"
